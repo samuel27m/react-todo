@@ -14,9 +14,9 @@ class Header extends Component {
                     <div className="col-sm-4 offset-md-1 py-4">
                     <h4 className="text-white">Contact</h4>
                     <ul className="list-unstyled">
-                        <li><a href="#" className="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" className="text-white">Like on Facebook</a></li>
-                        <li><a href="#" className="text-white">Email me</a></li>
+                        <li><a href="http://google.com" className="text-white">Follow on Twitter</a></li>
+                        <li><a href="http://google.com" className="text-white">Like on Facebook</a></li>
+                        <li><a href="http://google.com" className="text-white">Email me</a></li>
                     </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ class Header extends Component {
             <div className="navbar navbar-dark bg-dark shadow-sm">
                 <div className="container d-flex justify-content-between">
                 <a href="#" className="navbar-brand d-flex align-items-center">
-                    <strong>123 test</strong>
+                    <strong>React TODO</strong>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
