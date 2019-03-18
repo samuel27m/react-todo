@@ -22,8 +22,7 @@ class Add extends Component {
             <form className="add-task-form row" onSubmit={this.handleSubmit}>
                 <div className="form-group col-sm-12">
                     <input type="text" className="form-control" id="addTask" ref={(el) => this.name = el} placeholder="What do you need to do?" required autoFocus />
-                </div>
-                
+                </div>  
             </form>
         );
     }
