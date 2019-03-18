@@ -5,3 +5,7 @@ main > .container {
 .tasks-wrapper .card {
     margin-top: 25px;
 }
+
+.add-task-form .form-group {
+    margin-bottom: 50px;
+}

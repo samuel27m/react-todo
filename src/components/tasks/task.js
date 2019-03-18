@@ -4,11 +4,12 @@ class Task extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { pending: this.props.pending === "true" };
+        this.state = { pending: this.props.pending === true };
         this.toggleTask = this.toggleTask.bind(this);
     }
 
     toggleTask() {
+        console.log('task toggle');
         this.setState({ pending: !this.state.pending });
     }
 
