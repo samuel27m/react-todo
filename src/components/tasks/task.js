@@ -9,7 +9,6 @@ class Task extends Component {
     }
 
     toggleTask() {
-        console.log('task toggle');
         this.setState({ pending: !this.state.pending });
     }
 
@@ -22,7 +21,6 @@ class Task extends Component {
     }
 
     render() {
-        console.log(this.state.pending);
         return (
             <div className="card">
                 <div className="card-body">
