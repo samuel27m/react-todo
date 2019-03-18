@@ -11,16 +11,7 @@ class Index extends Component {
 
       // Default state
       this.state = {
-        tasks: [
-          {
-            name: "task 1",
-            pending: true
-          },
-          {
-            name: "task 2",
-            pending: false
-          }
-        ]
+        tasks: []
       };
 
       this.addTask = this.addTask.bind(this);

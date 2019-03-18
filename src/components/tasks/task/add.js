@@ -20,11 +20,8 @@ class Add extends Component {
     render() {
         return (
             <form className="add-task-form row" onSubmit={this.handleSubmit}>
-                <div className="form-group col-sm-2">
-                    <button type="submit" className="btn btn-primary col-sm-12">Add</button>
-                </div>
-                <div className="form-group col-sm-10">
-                    <input type="text" className="form-control" id="addTask" ref={(el) => this.name = el} placeholder="Add task" required autoFocus />
+                <div className="form-group col-sm-12">
+                    <input type="text" className="form-control" id="addTask" ref={(el) => this.name = el} placeholder="What do you need to do?" required autoFocus />
                 </div>
                 
             </form>
