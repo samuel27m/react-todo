@@ -14,9 +14,9 @@ class Header extends Component {
                     <div className="col-sm-4 offset-md-1 py-4">
                     <h4 className="text-white">Contact</h4>
                     <ul className="list-unstyled">
-                        <li><a href="http://google.com" className="text-white">Follow on Twitter</a></li>
-                        <li><a href="http://google.com" className="text-white">Like on Facebook</a></li>
-                        <li><a href="http://google.com" className="text-white">Email me</a></li>
+                        <li><a href="#" className="text-white">Follow on Twitter</a></li>
+                        <li><a href="#" className="text-white">Like on Facebook</a></li>
+                        <li><a href="#" className="text-white">Email me</a></li>
                     </ul>
                     </div>
                 </div>

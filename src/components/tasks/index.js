@@ -8,9 +8,9 @@ class Index extends Component {
     getTasks() {
         return (
             <div className="tasks-wrapper">
-                <h3>Pending tasks</h3>
-                <Task name="123" id="task1" />
-                <Task name="321" id="task2"/>
+                <h3>My tasks</h3>
+                <Task name="123" id="task1" pending="true" />
+                <Task name="321" id="task2" pending="false" />
             </div>
         );
     }
