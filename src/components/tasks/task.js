@@ -22,6 +22,7 @@ class Task extends Component {
     }
 
     render() {
+        console.log(this.state.pending);
         return (
             <div className="card">
                 <div className="card-body">

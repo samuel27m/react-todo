@@ -35,7 +35,7 @@ class Index extends Component {
     }
 
     addTask(taskName) {
-      this.state.tasks.unshift({
+      this.state.tasks.push({
         name: taskName,
         pending: true
       });
