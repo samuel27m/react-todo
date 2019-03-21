@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Index from './task';
+
 class Task extends Component {
 
     constructor(props) {
