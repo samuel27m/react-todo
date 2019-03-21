@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-
+import Index from './task';
 class Task extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { pending: this.props.pending === true };
         this.toggleTask = this.toggleTask.bind(this);
     }
 
     toggleTask() {
-        this.setState({ pending: !this.state.pending });
+        this.props.handler(this.props.id);
     }
 
     getTaskDescription() {
-        if(this.state.pending === false) {
+        if(this.props.pending === false) {
             return <span><s>{this.props.name}</s></span>;
         }
 
@@ -25,8 +24,8 @@ class Task extends Component {
             <div className="card">
                 <div className="card-body">
                     <div className="custom-control custom-switch">
-                        <input type="checkbox" className="custom-control-input" id={this.props.id} defaultChecked={!this.state.pending} onChange={this.toggleTask} />
-                        <label className="custom-control-label" htmlFor={this.props.id}>{this.getTaskDescription()}</label>
+                        <input type="checkbox" className="custom-control-input" id={this.props.htmlId} defaultChecked={!this.props.pending} onChange={this.toggleTask} />
+                        <label className="custom-control-label" htmlFor={this.props.htmlId}>{this.getTaskDescription()}</label>
                     </div>
                 </div>
             </div>

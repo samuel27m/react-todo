@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
+import Cookies from 'universal-cookie';
 import DefaultLayout from '../../layouts/Default';
 import Task from './task';
 import TaskAdd from './task/add.js';
 import './css/index.css';
 
 class Index extends Component {
-
+    
     constructor(props) {
       super(props);
-
+      
       // Default state
       this.state = {
-        tasks: []
+        tasks: this.getTasks()
       };
 
       this.addTask = this.addTask.bind(this);
+      this.toggleTask = this.toggleTask.bind(this);
     }
-    
-    getTasksHtml() {
-      const listItems = this.state.tasks.map((task, index) =>
-        <Task name={task.name} pending={task.pending} id={'task-' + index} key={'task-' + index}  />
-      );
 
-      return listItems;
+    toggleTask(taskId) {
+      const tasks = this.state.tasks;
+      tasks[taskId].pending = !tasks[taskId].pending;
+      
+      this.setTasks(tasks);
     }
 
     addTask(taskName) {
@@ -30,13 +31,32 @@ class Index extends Component {
         name: taskName,
         pending: true
       });
-
-      this.setState({
-        tasks: this.state.tasks
-      });
+      
+      this.setTasks(this.state.tasks);
     }
 
+    getTasks() {
+      const cookies = new Cookies();
+      return cookies.get('tasks') ? cookies.get('tasks') : [];
+    }
 
+    setTasks(tasks) {
+      this.setState({
+        tasks: tasks
+      });
+
+      const cookies = new Cookies();
+      cookies.set('tasks', tasks, { path: '/' });
+    }
+
+    getTasksHtml() {
+      const listItems = this.state.tasks.map((task, index) =>
+        <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + index} handler={this.toggleTask} />
+      );
+
+      return listItems;
+    }
+    
     render() {
       const tasksHtml = (
         <div className="tasks-wrapper">
