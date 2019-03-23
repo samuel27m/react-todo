@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesomeIcon from '../../layouts/plugins/FontAwesome';
 
 class Task extends Component {
 
@@ -8,7 +9,14 @@ class Task extends Component {
         this.cardClick = this.cardClick.bind(this);
     }
 
-    cardClick() {
+    cardClick(e) {
+        /** TODO: Separate card from remove button and try to remove this ugly condition. */
+        if (e.target.className === 'custom-control-input' || 
+            e.target.className === 'custom-control-label' ||
+            e.target.parentNode.parentNode.className === 'remove-task'
+        ) 
+            return;
+
         this.toggleTask();
     }
 
@@ -30,7 +38,12 @@ class Task extends Component {
                 <div className="card-body">
                     <div className="custom-control custom-switch">
                         <input type="checkbox" className="custom-control-input" id={this.props.htmlId} checked={!this.props.pending} onChange={this.toggleTask}/>
-                        <label className="custom-control-label" htmlFor={this.props.htmlId}>{this.getTaskDescription()}</label>
+                        <label className="custom-control-label" htmlFor={this.props.htmlId}>
+                            {this.getTaskDescription()}
+                        </label>
+                        <span className="remove-task">
+                            <FontAwesomeIcon icon="times" />
+                        </span>
                     </div>
                 </div>
             </div>

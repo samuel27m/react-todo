@@ -9,3 +9,7 @@ main > .container {
 .add-task-form .form-group {
     margin-bottom: 50px;
 }
+
+.remove-task {
+    float: right;
+}
