@@ -5,6 +5,11 @@ class Task extends Component {
     constructor(props) {
         super(props);
         this.toggleTask = this.toggleTask.bind(this);
+        this.cardClick = this.cardClick.bind(this);
+    }
+
+    cardClick() {
+        this.toggleTask();
     }
 
     toggleTask() {
@@ -21,10 +26,10 @@ class Task extends Component {
 
     render() {
         return (
-            <div className="card" onClick={this.toggleTask}>
+            <div className="card" onClick={this.cardClick}>
                 <div className="card-body">
                     <div className="custom-control custom-switch">
-                        <input type="checkbox" className="custom-control-input" id={this.props.htmlId} checked={!this.props.pending} />
+                        <input type="checkbox" className="custom-control-input" id={this.props.htmlId} checked={!this.props.pending} onChange={this.toggleTask}/>
                         <label className="custom-control-label" htmlFor={this.props.htmlId}>{this.getTaskDescription()}</label>
                     </div>
                 </div>
