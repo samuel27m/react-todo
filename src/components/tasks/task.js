@@ -21,10 +21,10 @@ class Task extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" onClick={this.toggleTask}>
                 <div className="card-body">
                     <div className="custom-control custom-switch">
-                        <input type="checkbox" className="custom-control-input" id={this.props.htmlId} defaultChecked={!this.props.pending} onChange={this.toggleTask} />
+                        <input type="checkbox" className="custom-control-input" id={this.props.htmlId} checked={!this.props.pending} />
                         <label className="custom-control-label" htmlFor={this.props.htmlId}>{this.getTaskDescription()}</label>
                     </div>
                 </div>
