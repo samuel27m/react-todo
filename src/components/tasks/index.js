@@ -56,6 +56,7 @@ class Index extends Component {
       cookies.set('tasks', tasks, { path: '/' });
     }
 
+    /** TODO: Make the key for this renderer to make sense? */
     getTasksHtml() {
       const listItems = this.state.tasks.map((task, index) =>
         <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + Math.random()} handler={this.toggleTask} removeHandler={this.removeTask} />

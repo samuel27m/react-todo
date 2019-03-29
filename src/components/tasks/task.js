@@ -37,6 +37,10 @@ class Task extends Component {
         return <span>{this.props.name}</span>;
     }
 
+    /**
+     * TODO: CSS for this
+     * Make it pretty please :)
+     */
     render() {
         return (
             <div>
