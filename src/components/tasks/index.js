@@ -17,12 +17,19 @@ class Index extends Component {
 
       this.addTask = this.addTask.bind(this);
       this.toggleTask = this.toggleTask.bind(this);
+      this.removeTask = this.removeTask.bind(this);
     }
 
     toggleTask(taskId) {
       const tasks = this.state.tasks;
       tasks[taskId].pending = !tasks[taskId].pending;
       
+      this.setTasks(tasks);
+    }
+
+    removeTask(taskId) {
+      const tasks = this.state.tasks;
+      tasks.splice(taskId, 1);
       this.setTasks(tasks);
     }
 
@@ -51,7 +58,7 @@ class Index extends Component {
 
     getTasksHtml() {
       const listItems = this.state.tasks.map((task, index) =>
-        <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + index} handler={this.toggleTask} />
+        <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + Math.random()} handler={this.toggleTask} removeHandler={this.removeTask} />
       );
 
       return listItems;
