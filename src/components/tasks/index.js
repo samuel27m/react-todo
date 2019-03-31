@@ -48,12 +48,30 @@ class Index extends Component {
     }
 
     setTasks(tasks) {
+      tasks = this.sortTasks(tasks);
+
       this.setState({
         tasks: tasks
       });
 
       const cookies = new Cookies();
       cookies.set('tasks', tasks, { path: '/' });
+    }
+
+    sortTasks(tasks) {
+      tasks.sort(function (a, b) {
+        if (a.pending === false && b.pending === true) {
+          return 1;
+        }
+
+        if (a.pending === true &&  b.pending === false) {
+          return -1;
+        }
+
+        return 0;
+      });
+      
+      return tasks;
     }
 
     /** TODO: Make the key for this renderer to make sense? */
