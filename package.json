@@ -33,5 +33,6 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  }
+  },
+  "homepage": "https://samuel27m.github.io/react-todo/"
 }
