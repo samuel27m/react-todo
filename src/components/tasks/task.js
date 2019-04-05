@@ -10,14 +10,23 @@ class Task extends Component {
         this.editTask = this.editTask.bind(this);
     }
 
+    /**
+     * Toggle task status
+     */
     toggleTask() {
         this.props.handler(this.props.id);
     }
 
+    /**
+     * Edit task name
+     */
     editTask() {
         this.props.editHandler(this.props.id);
     }
 
+    /**
+     * Remove task
+     */
     removeTask() {
         this.props.removeHandler(this.props.id);
     }
