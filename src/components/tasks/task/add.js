@@ -9,6 +9,10 @@ class Add extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
 
+    /**
+     * Handle add task form submittion
+     * @param {Event} e 
+     */
     handleSubmit(e) {
         e.preventDefault();
 
@@ -17,6 +21,10 @@ class Add extends Component {
         if(this.isMobile()) this.name.blur();
     }
 
+    /**
+     * Is user device mobile
+     * @returns {boolean}
+     */
     isMobile() {
         var check = false;
         // eslint-disable-next-line
