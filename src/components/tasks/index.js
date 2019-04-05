@@ -9,7 +9,6 @@ class Index extends Component {
     constructor(props) {
       super(props);
       
-      
       // Default state
       this.state = {
         tasks: this.getTasks()
@@ -21,6 +20,10 @@ class Index extends Component {
       this.editTask = this.editTask.bind(this);
     }
 
+    /**
+     * Edit tasks status with given ID
+     * @param {number} taskId 
+     */
     toggleTask(taskId) {
       const tasks = this.state.tasks;
       tasks[taskId].pending = !tasks[taskId].pending;
@@ -28,6 +31,10 @@ class Index extends Component {
       this.setTasks(tasks);
     }
 
+    /**
+     * Add task with given name
+     * @param {string} taskName 
+     */
     addTask(taskName) {
       this.state.tasks.push({
         name: taskName,
@@ -38,8 +45,9 @@ class Index extends Component {
     }
 
     /**
+     * Edit task name with given ID
      * TODO: Use Bootstrap alerts instead of default JS window.prompt
-     * @param {*} taskId 
+     * @param {number} taskId 
      */
     editTask(taskId) {
       const tasks = this.state.tasks;
@@ -48,16 +56,28 @@ class Index extends Component {
       this.setTasks(tasks);
     }
 
+    /**
+     * Remove task with given ID
+     * @param {number} taskId 
+     */
     removeTask(taskId) {
       const tasks = this.state.tasks;
       tasks.splice(taskId, 1);
       this.setTasks(tasks);
     }
 
+    /**
+     * Get tasks from localStorage object
+     * @returns {Array}
+     */
     getTasks() {   
       return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
     }
 
+    /**
+     * Save given tasks in localStorage object
+     * @param {Array} tasks 
+     */
     setTasks(tasks) {
       tasks = this.sortTasks(tasks);
 
@@ -68,6 +88,13 @@ class Index extends Component {
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
+
+    /**
+     * Sort tasks with following criteria
+     * Pending tasks will always show first
+     * @param {Array} tasks 
+     * @returns {Array}
+     */
     sortTasks(tasks) {
       tasks.sort(function (a, b) {
         if (a.pending === false && b.pending === true) {
@@ -84,7 +111,11 @@ class Index extends Component {
       return tasks;
     }
 
-    /** TODO: Make the key for this renderer to make sense? */
+    /** 
+     * Get rendered tasks HTML
+     * TODO: Make the key for this renderer to make sense?
+     * @returns {string}
+     */
     getTasksHtml() {
       const listItems = this.state.tasks.map((task, index) =>
         <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + Math.random()} 
