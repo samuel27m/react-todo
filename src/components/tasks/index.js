@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Cookies from 'universal-cookie';
 import DefaultLayout from '../../layouts/Default';
 import Task from './task';
 import TaskAdd from './task/add.js';
 import './css/index.css';
 
 class Index extends Component {
-    
+
     constructor(props) {
       super(props);
+      
       
       // Default state
       this.state = {
@@ -42,9 +42,9 @@ class Index extends Component {
       this.setTasks(this.state.tasks);
     }
 
-    getTasks() {
-      const cookies = new Cookies();
-      return cookies.get('tasks') ? cookies.get('tasks') : [];
+    getTasks() {   
+      console.log(localStorage.getItem('tasks'));   
+      return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
     }
 
     setTasks(tasks) {
@@ -54,8 +54,7 @@ class Index extends Component {
         tasks: tasks
       });
 
-      const cookies = new Cookies();
-      cookies.set('tasks', tasks, { path: '/' });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
     sortTasks(tasks) {
