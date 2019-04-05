@@ -18,18 +18,13 @@ class Index extends Component {
       this.addTask = this.addTask.bind(this);
       this.toggleTask = this.toggleTask.bind(this);
       this.removeTask = this.removeTask.bind(this);
+      this.editTask = this.editTask.bind(this);
     }
 
     toggleTask(taskId) {
       const tasks = this.state.tasks;
       tasks[taskId].pending = !tasks[taskId].pending;
       
-      this.setTasks(tasks);
-    }
-
-    removeTask(taskId) {
-      const tasks = this.state.tasks;
-      tasks.splice(taskId, 1);
       this.setTasks(tasks);
     }
 
@@ -42,8 +37,24 @@ class Index extends Component {
       this.setTasks(this.state.tasks);
     }
 
+    /**
+     * TODO: Use Bootstrap alerts instead of default JS window.prompt
+     * @param {*} taskId 
+     */
+    editTask(taskId) {
+      const tasks = this.state.tasks;
+      tasks[taskId].name = window.prompt('Enter task name');
+      
+      this.setTasks(tasks);
+    }
+
+    removeTask(taskId) {
+      const tasks = this.state.tasks;
+      tasks.splice(taskId, 1);
+      this.setTasks(tasks);
+    }
+
     getTasks() {   
-      console.log(localStorage.getItem('tasks'));   
       return localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
     }
 
@@ -76,7 +87,8 @@ class Index extends Component {
     /** TODO: Make the key for this renderer to make sense? */
     getTasksHtml() {
       const listItems = this.state.tasks.map((task, index) =>
-        <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + Math.random()} handler={this.toggleTask} removeHandler={this.removeTask} />
+        <Task name={task.name} pending={task.pending} htmlId={'task-' + index} id={index} key={'task-' + Math.random()} 
+          handler={this.toggleTask} removeHandler={this.removeTask} editHandler={this.editTask} />
       );
 
       return listItems;

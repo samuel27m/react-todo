@@ -7,10 +7,15 @@ class Task extends Component {
         super(props);
         this.toggleTask = this.toggleTask.bind(this);
         this.removeTask = this.removeTask.bind(this);
+        this.editTask = this.editTask.bind(this);
     }
 
     toggleTask() {
         this.props.handler(this.props.id);
+    }
+
+    editTask() {
+        this.props.editHandler(this.props.id);
     }
 
     removeTask() {
@@ -21,15 +26,22 @@ class Task extends Component {
         return (
             <div>
                 <div className="card">
-                    <div className="card-body">
+                    <div className="card-body task">
                         <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id={this.props.htmlId} checked={!this.props.pending} onChange={this.toggleTask} />
                             <label className="custom-control-label" htmlFor={this.props.htmlId}>
                                 <span>{this.props.name}</span>
                             </label>
-                            <span className="remove-task" onClick={this.removeTask}>
-                                <FontAwesomeIcon icon="trash" />
-                            </span>
+                            
+                            <div className="actions">
+                                <span className="edit-task" onClick={this.editTask}>
+                                    <FontAwesomeIcon icon="pencil-alt" />
+                                </span>
+
+                                <span className="remove-task" onClick={this.removeTask}>
+                                    <FontAwesomeIcon icon="trash-alt" />
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

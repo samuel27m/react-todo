@@ -10,6 +10,12 @@ main > .container {
     margin-bottom: 50px;
 }
 
-.remove-task {
+.task .actions {
     float: right;
+}
+.remove-task,
+.edit-task {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #343a40;
 }
