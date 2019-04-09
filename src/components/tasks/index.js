@@ -50,9 +50,19 @@ class Index extends Component {
      * @param {number} taskId 
      */
     editTask(taskId) {
-      const tasks = this.state.tasks;
-      tasks[taskId].name = window.prompt('Enter task name');
+      const name = window.prompt('Enter task name');
       
+      /** User cancels prompt */
+      if(name === null) return;
+      
+      /** User sets name as empty */
+      if(name.trim() === '') {
+        alert('Task name cannot be empty');
+        return;
+      }
+      
+      const tasks = this.state.tasks;
+      tasks[taskId].name = name;
       this.setTasks(tasks);
     }
 
