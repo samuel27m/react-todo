@@ -13,6 +13,7 @@ main > .container {
 .task .actions {
     float: right;
 }
+
 .remove-task,
 .edit-task {
     cursor: pointer;
