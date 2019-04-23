@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import 'sweetalert2/dist/sweetalert2.css';
 import Header from './Header';
 
 class Default extends Component {

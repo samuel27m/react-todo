@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DefaultLayout from '../../layouts/Default';
 import Task from './task';
 import TaskAdd from './task/add.js';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 import './css/index.css';
 
 class Index extends Component {
@@ -49,20 +50,25 @@ class Index extends Component {
      * TODO: Use Bootstrap alerts instead of default JS window.prompt
      * @param {number} taskId 
      */
-    editTask(taskId) {
-      const name = window.prompt('Enter task name');
-      
-      /** User cancels prompt */
-      if(name === null) return;
-      
-      /** User sets name as empty */
-      if(name.trim() === '') {
-        alert('Task name cannot be empty');
-        return;
-      }
-      
+    async editTask(taskId) {
       const tasks = this.state.tasks;
-      tasks[taskId].name = name;
+      
+      const {value: taskName} = await Swal.fire({
+        title: 'Edit task',
+        input: 'text',
+        inputValue: tasks[taskId].name,
+        showCancelButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Task name cannot be empty!'
+          }
+        }
+      });
+      
+      /** User clicks cancel button */
+      if(typeof(taskName) === 'undefined') return;
+      
+      tasks[taskId].name = taskName;
       this.setTasks(tasks);
     }
 
