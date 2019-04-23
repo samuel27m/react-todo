@@ -1,7 +1,17 @@
+/** Main structure CSS */
 main > .container {
     padding: 50px;
 }
 
+main .navbar-toggler {
+    cursor: pointer;
+}
+
+main .navbar-toggler:focus {
+    outline: 0;
+}
+/** ------------------ */
+/** Tasks CSS **/
 .tasks-wrapper .card {
     margin-top: 25px;
 }
