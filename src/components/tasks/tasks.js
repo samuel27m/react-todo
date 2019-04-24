@@ -43,7 +43,6 @@ class Index extends Component {
 
 	/**
 	 * Edit task name with given ID
-	 * TODO: Use Bootstrap alerts instead of default JS window.prompt
 	 * @param {number} taskId
 	 */
 	async editTask(taskId) {
@@ -124,34 +123,23 @@ class Index extends Component {
 		return tasks;
 	}
 
-	/**
-	 * Get rendered tasks HTML
-	 * TODO: Make the key for this renderer to make sense?
-	 * @returns {string}
-	 */
-	getTasksHtml() {
-		const listItems = this.state.tasks.map((task, index) => (
-			<Task
-				name={task.name}
-				pending={task.pending}
-				htmlId={'task-' + index}
-				id={index}
-				key={'task-' + Math.random()}
-				toggleTask={this.toggleTask}
-				removeTask={this.removeTask}
-				editTask={this.editTask}
-			/>
-		));
-
-		return listItems;
-	}
-
 	render() {
 		const tasksHtml = (
 			<div className='tasks-wrapper'>
 				<TaskAdd addTask={this.addTask} />
 				<h3>My tasks</h3>
-				{this.getTasksHtml()}
+				{this.state.tasks.map((task, index) => (
+					<Task
+						name={task.name}
+						pending={task.pending}
+						htmlId={'task-' + index}
+						id={index}
+						key={'task-' + Math.random()}
+						toggleTask={this.toggleTask}
+						removeTask={this.removeTask}
+						editTask={this.editTask}
+					/>
+				))}
 			</div>
 		);
 		return <DefaultLayout content={tasksHtml} />;
