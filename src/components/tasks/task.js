@@ -20,7 +20,9 @@ class Task extends Component {
 
 							<label
 								className='custom-control-label'
-								htmlFor={this.props.htmlId}
+								onDoubleClick={() =>
+									this.props.editTask(this.props.id)
+								}
 							>
 								<span>{this.props.name}</span>
 							</label>
