@@ -1,32 +1,32 @@
 /** Main structure CSS */
 main > .container {
-    padding: 50px;
+	padding: 50px;
 }
 
 main .navbar-toggler {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 main .navbar-toggler:focus {
-    outline: 0;
+	outline: 0;
 }
 /** ------------------ */
 /** Tasks CSS **/
 .tasks-wrapper .card {
-    margin-top: 25px;
+	margin-top: 25px;
 }
 
 .add-task-form .form-group {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 .task .actions {
-    float: right;
+	float: right;
 }
 
 .remove-task,
 .edit-task {
-    cursor: pointer;
-    margin-left: 10px;
-    color: #343a40;
+	cursor: pointer;
+	margin-left: 10px;
+	color: #343a40;
 }
