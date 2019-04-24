@@ -43,7 +43,6 @@ class Index extends Component {
 
 	/**
 	 * Edit task name with given ID
-	 * TODO: Use Bootstrap alerts instead of default JS window.prompt
 	 * @param {number} taskId
 	 */
 	async editTask(taskId) {
