@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Header extends Component {
 	render() {
+		console.log(process.env);
 		return (
 			<header>
 				<div className='collapse bg-dark' id='navbarHeader'>
@@ -49,7 +50,7 @@ class Header extends Component {
 				<div className='navbar navbar-dark bg-dark shadow-sm'>
 					<div className='container d-flex justify-content-between'>
 						<a
-							href='/'
+							href={process.env.PUBLIC_URL + '/'}
 							className='navbar-brand d-flex align-items-center'
 						>
 							<strong>React TODO</strong>
