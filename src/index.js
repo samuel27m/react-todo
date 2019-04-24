@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TasksComponent from './components/tasks/index';
+import TasksComponent from './components/tasks/tasks';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<TasksComponent />, document.getElementById('root'));
