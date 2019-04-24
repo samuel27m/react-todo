@@ -149,7 +149,7 @@ class Index extends Component {
     render() {
         const tasksHtml = (
             <div className="tasks-wrapper">
-                <TaskAdd handler={this.addTask} />
+                <TaskAdd addTask={this.addTask} />
                 <h3>My tasks</h3>
                 {this.getTasksHtml()}
             </div>

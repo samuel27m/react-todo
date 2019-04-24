@@ -13,7 +13,7 @@ class Add extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        this.props.handler(this.name.value);
+        this.props.addTask(this.name.value);
         this.name.value = "";
         if (this.isMobile()) this.name.blur();
     };
