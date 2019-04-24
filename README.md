@@ -17,6 +17,7 @@ npm start
 
 - React :roll_eyes:
 - Bootstrap v4
+- Sweetalert2
 
 ## PWA
 Yes! This app uses the provided tools by React to be PWA compatible! [Open the website](https://samuel27m.github.io/react-todo) in your phone and you will see the button to add it to your home screen :smile: :tada:
