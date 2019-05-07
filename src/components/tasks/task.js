@@ -3,6 +3,8 @@ import FontAwesomeIcon from '../../layouts/plugins/FontAwesome';
 
 class Task extends Component {
 	render() {
+		const { id, htmlId } = this.props;
+
 		return (
 			<div>
 				<div className='card'>
@@ -11,16 +13,16 @@ class Task extends Component {
 							<input
 								type='checkbox'
 								className='custom-control-input'
-								id={this.props.htmlId}
+								id={htmlId}
 								checked={!this.props.pending}
 								onChange={() =>
-									this.props.toggleTask(this.props.id)
+									this.props.toggleTask(id)
 								}
 							/>
 
 							<label
 								className='custom-control-label'
-								htmlFor={this.props.htmlId}
+								htmlFor={htmlId}
 							>
 								<span>{this.props.name}</span>
 							</label>
@@ -29,7 +31,7 @@ class Task extends Component {
 								<span
 									className='edit-task'
 									onClick={() =>
-										this.props.editTask(this.props.id)
+										this.props.editTask(id)
 									}
 								>
 									<FontAwesomeIcon icon='pencil-alt' />
@@ -38,7 +40,7 @@ class Task extends Component {
 								<span
 									className='remove-task'
 									onClick={() =>
-										this.props.removeTask(this.props.id)
+										this.props.removeTask(id)
 									}
 								>
 									<FontAwesomeIcon icon='trash-alt' />

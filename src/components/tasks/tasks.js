@@ -22,7 +22,7 @@ class Index extends Component {
 	 * @param {number} taskId
 	 */
 	toggleTask = taskId => {
-		const tasks = this.state.tasks;
+		const { tasks } = this.state;
 		tasks[taskId].pending = !tasks[taskId].pending;
 
 		this.setTasks(tasks);
@@ -33,12 +33,12 @@ class Index extends Component {
 	 * @param {string} taskName
 	 */
 	addTask = taskName => {
-		this.state.tasks.push({
+		const { tasks } = this.state;
+
+		this.setTasks([...tasks, {
 			name: taskName,
 			pending: true
-		});
-
-		this.setTasks(this.state.tasks);
+		}]);
 	};
 
 	/**
@@ -46,7 +46,7 @@ class Index extends Component {
 	 * @param {number} taskId
 	 */
 	async editTask(taskId) {
-		const tasks = this.state.tasks;
+		const { tasks } = this.state;
 
 		const { value: taskName } = await Swal.fire({
 			title: 'Edit task',
@@ -72,9 +72,8 @@ class Index extends Component {
 	 * @param {number} taskId
 	 */
 	removeTask = taskId => {
-		const tasks = this.state.tasks;
-		tasks.splice(taskId, 1);
-		this.setTasks(tasks);
+		const { tasks } = this.state;
+		this.setTasks(tasks.splice(taskId, 1));
 	};
 
 	/**
@@ -124,11 +123,13 @@ class Index extends Component {
 	}
 
 	render() {
+		const { tasks } = this.state.tasks;
+
 		const tasksHtml = (
 			<div className='tasks-wrapper'>
 				<TaskAdd addTask={this.addTask} />
 				<h3>My tasks</h3>
-				{this.state.tasks.map((task, index) => (
+				{tasks.map((task, index) => (
 					<Task
 						name={task.name}
 						pending={task.pending}

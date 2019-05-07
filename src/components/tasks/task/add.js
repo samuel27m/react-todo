@@ -12,10 +12,12 @@ class Add extends Component {
 	 */
 	handleSubmit = e => {
 		e.preventDefault();
-
-		this.props.addTask(this.name.value);
-		this.name.value = '';
-		if (this.isMobile()) this.name.blur();
+		const { addTask } = this.props;
+		
+		addTask(this.nameInput.value);
+		this.nameInput.value = '';
+		
+		if (this.isMobile()) this.nameInput.blur();
 	};
 
 	/**
@@ -47,7 +49,7 @@ class Add extends Component {
 						type='text'
 						className='form-control'
 						id='addTask'
-						ref={el => (this.name = el)}
+						ref={el => (this.nameInput = el)}
 						placeholder='What do you need to do?'
 						autoComplete='off'
 						required
