@@ -123,7 +123,7 @@ class Index extends Component {
 	}
 
 	render() {
-		const { tasks } = this.state.tasks;
+		const { tasks } = this.state;
 
 		const tasksHtml = (
 			<div className='tasks-wrapper'>
