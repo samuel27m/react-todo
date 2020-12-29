@@ -73,7 +73,10 @@ class Index extends Component {
 	 */
 	removeTask = taskId => {
 		const { tasks } = this.state;
-		this.setTasks(tasks.splice(taskId, 1));
+		
+		this.setTasks(
+			tasks.filter((task, index) => index !== taskId)
+		);
 	};
 
 	/**
